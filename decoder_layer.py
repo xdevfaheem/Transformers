@@ -1,11 +1,9 @@
 # import necessary modules
-from math import sin, cos, sqrt, log
-import copy
 import torch
 import torch.nn as nn
-import torch.nn.functional as F
 from attention import MultiHeadAttention
 from ta_block import TransformerBlock
+
 
 # class for Single Decoder Layer in Transformers
 class DecoderLayer(nn.Module):
@@ -54,6 +52,7 @@ class DecoderLayer(nn.Module):
 
         self.transformer_block = TransformerBlock(embedding_dim, activation=activation, num_heads=num_heads, expansion_factor=expansion_factor, dropout=self.dropout) # Transformer block used in both encoder and decoder
 
+    
     def forward(self, query, key, y, mask):
 
         """
@@ -71,12 +70,10 @@ class DecoderLayer(nn.Module):
         masked_multi_head_attention = self.attention(y, y, y, mask=mask) # Performing casual attention on decoder's input
 
         if self.dropout is not None:
-
             # residual connection and normalization with dropout at last
             value = self.dropout(self.layer_norm(masked_multi_head_attention + y))
 
         else:
-
             # residual connection and normalization without dropout
             value = self.layer_norm(masked_multi_head_attention + y)
 
