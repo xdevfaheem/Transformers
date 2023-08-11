@@ -17,7 +17,7 @@ class Decoder(nn.Module):
                  expansion_factor=4,
                  num_heads=8,
                  dropout=None
-                 ):
+        ):
 
         """
         The Decoder part of the Transformer architecture
