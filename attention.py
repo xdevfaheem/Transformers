@@ -1,9 +1,6 @@
 # Import Necessary Modeules
-from math import sin, cos, sqrt, log
-import copy
 import torch
 import torch.nn as nn
-import torch.nn.functional as F
 from activation import Softmax
 
 
