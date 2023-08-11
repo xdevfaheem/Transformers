@@ -4,6 +4,7 @@ import copy
 import torch
 import torch.nn as nn
 import torch.nn.functional as F
+from activation import Softmax
 
 
 # class for Multi Head Attention Module
