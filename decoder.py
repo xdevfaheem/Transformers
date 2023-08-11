@@ -8,7 +8,6 @@ from decoder_layer import DecoderLayer
 # class for single decoder block in transformer architecture
 class Decoder(nn.Module):
 
-
     def __init__(self,
                  target_vocab_size,
                  max_seq_len,
