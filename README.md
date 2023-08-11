@@ -1,6 +1,5 @@
 # Transformers Architecture Implementation from Scratch
-
-Welcome to the **Transformers Architecture Implementation from Scratch** repository! This project aims to provide a comprehensive and educational implementation of the Transformers architecture, which serves as the foundation for many of the current state-of-the-art language models. By understanding and building the Transformers architecture from scratch, you can gain insights into the inner workings of advanced NLP models.
+[![GitHub license](https://img.shields.io/github/license/TheFaheem/Transformers.svg)](https://github.com/TheFaheem/Transformers/blob/main/LICENSE)
 
 ## Table of Contents
 
@@ -16,28 +15,36 @@ Welcome to the **Transformers Architecture Implementation from Scratch** reposit
 
 ## Introduction
 
-This repository contains a complete implementation of the Transformers architecture, a pivotal innovation in the field of natural language processing. Transformers have revolutionized how we approach tasks such as language translation, text generation, and sentiment analysis. By delving into the source code and accompanying documentation, you can enhance your understanding of the intricacies of this powerful architecture.
+Here I present a My Comprehensive Implementation of the Transformers architecture from scratch, which serves as the foundation for many of the current state-of-the-art language models. By practically applying the deep learning knowledge and NLP principles I've acquired thus far, I'm Able to Build this from ground up, which helps me understand the inner working of the transfomer neural network. This repository showcases my commitment to mastering the intricacies of advanced NLP models and translating theoretical knowledge into practical implementation.
 
-## Features
+## Motivation
 
-- **Step-by-Step Implementation**: Our implementation is presented in a clear and structured manner, guiding you through each component of the Transformers architecture.
-- **Educational Resource**: Whether you're new to Transformers or an experienced practitioner, this repository can serve as an educational resource to enhance your understanding of the architecture.
-- **Modularity and Extensibility**: The codebase is designed to be modular, making it easy for you to experiment with different components and adapt the architecture to your specific use cases.
-- **Hands-On Learning**: By actively engaging with the code, you can gain hands-on experience in building complex deep learning models from scratch.
+As a NLP Enthusiast, I was just curios to demystify the renowned Transformers architecture. I wanted to go beyond the surface and understand the inner workings of attention mechanisms, positional encodings, and self/casual attention.
 
-## Getting Started
+## What Sets This Repository Apart
 
-### Prerequisites
+- **Educational Showcase**: This repository stands as a testament to my dedication to learning and mastering complex concepts in deep learning and NLP.
+- **Hands-On Expertise**: My implementation underscores my hands-on expertise in neural networks, attention mechanisms, and model design.
+- **In-Depth Understanding**: By crafting each component of the Transformers architecture, I demonstrate my ability to delve deep into intricate model architectures.
 
-Before you begin, ensure you have met the following requirements:
+## Key Features
 
-- Python 3.6+
-- Your favorite development environment (e.g., Jupyter Notebook, VSCode)
+- **Step-by-Step Progress**: The repository meticulously documents the creation of each module, providing an insight into the gradual construction of the Transformers architecture.
+- **Hands-On Learning**: I invite you to explore the codebase, where you'll find modules for attention mechanisms, positional encodings, and more, all built from scratch.
+- **Practical Application**: The implementation bridges the gap between theoretical knowledge and practical application, revealing how each piece contributes to the overall functionality.
 
-### Installation
+## Get Involved
 
-1. Clone this repository:
-   ```sh
-   git clone https://github.com/your-username/your-repo.git
-   cd your-repo
+I encourage you to explore the code, analyze the implementation, and use this repository as a base and modify it further according to your need. use it as a resource to enhance your understanding of the Transformers architecture. Whether you're a fellow enthusiast, a student eager to learn, or a professional honing your skills, I beleive, this repository offers a unique opportunity to dive deep into a fundamental architecture.
 
+## Acknowledgments
+
+I am immensely grateful for the resources, research papers, and open-source projects that have contributed to my learning journey.
+
+## Connect with Me
+
+I'm excited to connect with fellow learners, enthusiasts, and professionals. If you have any questions, suggestions, or just want to chat about deep learning and NLP, feel free to reach out to me on [LinkedIn](https://www.linkedin.com/in/thefaheem/) or [Twitter](https://twitter.com/faheem_nlp).
+
+## License
+
+This project is licensed under the terms of the [MIT License](LICENSE).
