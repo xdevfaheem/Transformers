@@ -16,7 +16,7 @@
 
 ## Introduction
 
-Here I present a My Comprehensive Implementation of the Transformers architecture from scratch, which serves as the foundation for many of the current state-of-the-art language models. By practically applying the deep learning knowledge and NLP principles I've acquired thus far, I'm Able to Build this from ground up, which helps me understand the inner working of the transfomer architecture. I beleive, this repository offers a opportunity for those who wants to dive deep into a fundamental transformer architecture.
+Here I present My Comprehensive Implementation of the Transformers architecture from scratch, which serves as the foundation for many of the current state-of-the-art language models. By practically applying the deep learning knowledge and NLP principles I've acquired thus far, I'm Able to Build this from ground up, which helps me understand the inner working of the transfomer architecture. I beleive, this repository offers a opportunity for those who wants to dive deep into a fundamental transformer architecture.
 
 
 ## Motivation
