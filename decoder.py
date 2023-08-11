@@ -1,9 +1,7 @@
 # importing necessary module
-from math import sin, cos, sqrt, log
 import copy
 import torch
 import torch.nn as nn
-import torch.nn.functional as F
 from embedding_utils import PositionalEncoding
 from decoder_layer import DecoderLayer
 
