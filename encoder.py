@@ -1,9 +1,7 @@
 # import required modules
-from math import sin, cos, sqrt, log
-import copy
 import torch
 import torch.nn as nn
-import torch.nn.functional as F
+import copy
 from embedding_utils import EmbeddingLayer, PositionalEncoding
 from ta_block import TransformerBlock
 
@@ -48,6 +46,8 @@ class Encoder(nn.Module):
         self.transformer_blocks = stack_them_up(TransformerBlock(hidden_size=embedding_dim, activation=activation, num_heads=num_heads, dropout=dropout, expansion_factor=expansion_factor), num_blocks) # Sequentially applies the blocks of the Transformer network
 
         """
+        You can use this too...
+        
         self.transformer_blocks = nn.Sequential(
                 *[TransformerBlock(
                     hidden_size=embedding_dim,
@@ -64,7 +64,7 @@ class Encoder(nn.Module):
     def forward(self, x):
 
         """
-        Forward Pass in Encoder part of transformer
+        Forward Pass Through Encoder.
         Inputs:
             x : sequence of tokenized words in batch for parallelism with shape of [batch_size, seq_len]. Note : Here seq_len is fixed len with padded tokens
         Outputs:
