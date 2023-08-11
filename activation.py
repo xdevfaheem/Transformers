@@ -1,8 +1,6 @@
-from math import sin, cos, sqrt, log
-import copy
 import torch
 import torch.nn as nn
-import torch.nn.functional as F
+
 
 # class for Softmax Activation used in Attention Mechanism and Final Projection, which gives Probablic Distribution over the given logits/tensors
 class Softmax(nn.Module):
