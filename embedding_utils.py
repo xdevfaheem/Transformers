@@ -1,9 +1,7 @@
 # Importing Required Libraries
-from math import sin, cos, sqrt, log
-import copy
 import torch
 import torch.nn as nn
-import torch.nn.functional as F
+
 
 # class for Embedding Layer to project the input sequences to Multi Dimensional Space
 class EmbeddingLayer(nn.Module):
@@ -23,6 +21,7 @@ class EmbeddingLayer(nn.Module):
 	    """
 
         super(EmbeddingLayer, self).__init__()
+	    
         self.embed_dim = embedding_dim
         self.embed = nn.Embedding(vocab_size, embedding_dim)
 
@@ -38,9 +37,10 @@ class EmbeddingLayer(nn.Module):
         x = self.embed(x) # This gives a tensor representing the embeddings of the input words.
         embedded = x * sqrt(self.embed_dim) # This scaling factor is often used to prevent gradient explosions when training deep networks.
         return embedded # The resulting tensor is the numerical representation of the input in the embedding space.
+		
 
 """
-Some Codes to check and play around with Embeddings:
+Some Codes to play around with Embeddings which i used:
 
 max_seq_len = 100
 embedding_dim = 10
@@ -53,6 +53,7 @@ print(embedded)
 print()
 print(embedded.shape) # batchsize, seq_len, embedding_dim
 """
+
 
 # class for Positional Encoding to injects some information to the embedded values about the relative or absolute position of the tokens in the sequence
 class PositionalEncoding(nn.Module):
@@ -129,6 +130,8 @@ class PositionalEncoding(nn.Module):
     def forward(self, x):
 
 		"""
+  		Forward Pass through Positional Encoding Layer
+	
   		Inputs:
 			x : Embedded Sequence
    		Returns:
@@ -143,4 +146,3 @@ class PositionalEncoding(nn.Module):
         	return self.pos_dropout(x) # [batch_size, seq_len, embedding_dim]
 		else:
 			return x
-			
