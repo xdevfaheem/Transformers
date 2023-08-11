@@ -1,12 +1,11 @@
 # importing necessary module
-from math import sin, cos, sqrt, log
 import copy
 import torch
 import torch.nn as nn
-import torch.nn.functional as F
 from activation import Softmax
 from decoder import Decoder
 from encoder import Encoder
+
 
 # class for Complete Transformers Architecture (TA)
 class TransformerNet(nn.Module):
@@ -70,6 +69,7 @@ class TransformerNet(nn.Module):
         # Final Fully Connected Layer to project the distribution over target vocabulary
         self.fc_out = nn.Linear(d_model, target_vocab_size)
 
+    
     # function to create mask for MMHA
     def _create_target_mask(self, tg):
         batch_size, trg_len = tg.shape
@@ -78,9 +78,12 @@ class TransformerNet(nn.Module):
         trg_mask = torch.tril(torch.ones((batch_size, 1, trg_len, trg_len))).type(torch.bool)
         return trg_mask
 
+    
     def forward(self, input, target):
 
         """
+        Forward Pass through Transformer Architecture
+        
         Inputs:
             input : Input to the Encoder
             target : Input to the Decoder
@@ -91,13 +94,13 @@ class TransformerNet(nn.Module):
 
         trg_mask = self._create_target_mask(target) # mask used for casual attention
 
-        # Forward Pass to the Encoder Layer
+        # Forward Pass through the Encoder Layer
         enc_out = self.encoder(input)
 
-        # Forward pass to the Decoder Layer
+        # Forward pass through Decoder Layer
         outputs = self.decoder(enc_out, target, trg_mask)
 
-        # Softmax over finally linear projected logits across the final dimension
+        # Softmax over finally linear projected logits along the final dimension
         output = self.softmax(self.fc_out(outputs))
 
         return output
