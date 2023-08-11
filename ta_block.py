@@ -1,15 +1,11 @@
 # importing necessary modules
-from math import sin, cos, sqrt, log
-import copy
 import torch
 import torch.nn as nn
-import torch.nn.functional as F
 from attention import MultiHeadAttention
 
 
 # class for single Transformer Block
 class TransformerBlock(nn.Module):
-
 
     def __init__(self,
                  hidden_size,
@@ -102,13 +98,10 @@ class TransformerBlock(nn.Module):
         """
 
         if self.dropout is not None:
-
             # after that we normalize and use dropout
             attention_drop_normed = self.dropout(self.layer_norm(attention_out))  # e.g.: 32x10x512
-            # print(attention_norm.shape)
-
+        
         else:
-
             # only layer normalization is performed
             attention_drop_normed = self.layer_norm(attention_out)
 
@@ -119,12 +112,10 @@ class TransformerBlock(nn.Module):
         fc_out = fc_out + attention_drop_normed  # e.g.: 32x10x512
 
         if self.dropout is not None:
-
             # dropout + normalization
             fc_norm = self.dropout(self.layer_norm(fc_out))  # e.g.: 32x10x512
 
         else:
-
             # just normalization without dropout
             fc_norm = self.layer_norm(fc_out)
 
