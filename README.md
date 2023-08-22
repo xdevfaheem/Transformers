@@ -1,5 +1,9 @@
-# Transformers Architecture Implementation from Scratch
-[![GitHub license](https://img.shields.io/github/license/TheFaheem/Transformers.svg)](https://github.com/TheFaheem/Transformers/blob/main/LICENSE)
+<h1 align="center"> Transformers Architecture Implementation from Scratch </h1>
+
+<p align="center">
+  <img alt="Python Version" src="https://img.shields.io/badge/Python-3.x-blue.svg">
+  <img alt="License" src="https://img.shields.io/badge/License-MIT-yellow.svg">
+</p>
 
 ## Table of Contents
 
