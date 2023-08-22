@@ -2,7 +2,9 @@
 
 <p align="center">
   <img alt="Python Version" src="https://img.shields.io/badge/Python-3.x-blue.svg">
-  <img alt="License" src="https://img.shields.io/badge/License-MIT-yellow.svg">
+  <a href="https://github.com/TheFaheem/Transformers/blob/main/LICENSE">
+    <img alt="License" src="https://img.shields.io/badge/License-MIT-yellow.svg">
+  </a>
 </p>
 
 ## Table of Contents
