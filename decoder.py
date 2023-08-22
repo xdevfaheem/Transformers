@@ -5,6 +5,7 @@ import torch.nn as nn
 from embedding_utils import PositionalEncoding
 from decoder_layer import DecoderLayer
 
+
 # class for single decoder block in transformer architecture
 class Decoder(nn.Module):
 
