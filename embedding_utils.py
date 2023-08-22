@@ -129,15 +129,15 @@ class PositionalEncoding(nn.Module):
 
     def forward(self, x):
 
-		"""
-  		Forward Pass through Positional Encoding Layer
-	
-  		Inputs:
-			x : Embedded Sequence
-   		Returns:
-	 		The Positional Encoding added to Embedded Sequence to provide information
-        	about the positions of tokens in the sequence.
-  		"""
+	"""
+	Forward Pass through Positional Encoding Layer
+
+	Inputs:
+		x : Embedded Sequence
+	Returns:
+		The Positional Encoding added to Embedded Sequence to provide information
+	about the positions of tokens in the sequence.
+	"""
 		
         # print(x.shape, self.pe.shape)
         x = x + self.pe[:, :x.size(1), :].requires_grad_(False)
