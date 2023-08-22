@@ -35,7 +35,7 @@ class EmbeddingLayer(nn.Module):
         """
 		
         x = self.embed(x) # This gives a tensor representing the embeddings of the input words.
-        embedded = x * sqrt(self.embed_dim) # This scaling factor is often used to prevent gradient explosions when training deep networks.
+        embedded = x * torch.sqrt(torch,tensor(self.embed_dim)) # This scaling factor is often used to prevent gradient explosions when training deep networks.
         return embedded # The resulting tensor is the numerical representation of the input in the embedding space.
 		
 
@@ -118,8 +118,8 @@ class PositionalEncoding(nn.Module):
         positional_encoding[:, 0::2] = torch.sin(position * div_term) # apply sin functions for every two coloumn of pos_emb matrix starting from 0. This term `position * div_term` has shape (max_seq_len, embedding_dim/2)
         positional_encoding[:, 1::2] = torch.cos(position * div_term) # apply cosine functions for every two coloumn of pos_emb matrix starting from 0.
 
-        pe = positional_encoding.unsqueeze(0) # Add Extra Batch Dimension along the first axis
-        self.register_buffer('pe', pe) # Register Buffer to make it a part of the module's state_dict
+        self.pe = positional_encoding.unsqueeze(0) # Add Extra Batch Dimension along the first axis
+        self.register_buffer('pe', self.pe) # Register Buffer to make it a part of the module's state_dict
 
     def _pe_sin(self, position, i): # internal sin function
         return torch.sin(position / torch.pow(self.n, ((2 * i) / self.embedding_dim)))
