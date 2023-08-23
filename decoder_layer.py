@@ -53,32 +53,32 @@ class DecoderLayer(nn.Module):
         self.transformer_block = TransformerBlock(embedding_dim, activation=activation, num_heads=num_heads, expansion_factor=expansion_factor, dropout=self.dropout) # Transformer block used in both encoder and decoder
 
     
-    def forward(self, query, key, y, mask):
+    def forward(self, x, key, value, mask):
 
         """
         Forward Pass to Decoder Layer
         
         Inputs:
-            query - Encoder Representation of Encoder's input (Encoder Output)
-            key -  Encoder Representation (This is also Encoder's Output)
-            y - Decoder's Input
+            x - Decoder's Input
+            key -  Encoder Representation of Encoder's input (Encoder Output)
+            value - Encoder Representation (This is also Encoder's Output)
         Returns:
             TransfomerBlock's Output between Encoder Representation of Encoder's Input (q, k) and Masked Multi Head Attention within Decoder's Input (Decoder Reprensentation of Decoder's Input)
         """
 
         # MMHA
-        masked_multi_head_attention = self.attention(y, y, y, mask=mask) # Performing casual attention on decoder's input
+        masked_multi_head_attention = self.attention(x, x, x, mask=mask) # Performing casual attention on decoder's input
 
         if self.dropout is not None:
             # residual connection and normalization with dropout at last
-            value = self.dropout(self.layer_norm(masked_multi_head_attention + y))
+            query = self.dropout(self.layer_norm(masked_multi_head_attention + x))
 
         else:
             # residual connection and normalization without dropout
-            value = self.layer_norm(masked_multi_head_attention + y)
+            query = self.layer_norm(masked_multi_head_attention + x)
 
         # forward pass to Transformer Block which consist of multi head attention between encoder output q, k and decoder's output (value)
         # and feed forward network in addition to that add & norm inbetween layer to prevent overfitting and stable training als, some dropouts if you opt in :)
-        decoder_attention = self.transformer_block(query, key, value) # we are not passing the mask as self attenttion will be performed among them not casual attention
+        decoder_attention = self.transformer_block(query=query, key=key, value=value) # we are not passing the mask as self attenttion will be performed among them not casual attention
 
         return decoder_attention
