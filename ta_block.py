@@ -88,13 +88,13 @@ class TransformerBlock(nn.Module):
         attention = self.attention(query, key, value, mask=mask)  # e.g.: 32x10x512
 
         # then add the residual connection
-        attention_out = attention + value
+        attention_out = attention + query
 
         """
-        The reason are we adding `value` matrix because in the encoder part the input itself is splited into q, k, v so these matrix are same as other,
-        but when it comes to decoder, the value matrix comes from masked multi head attention with casual masking performed on decoder input. Therefore,
+        The reason are we adding `query` matrix because in the encoder part the input itself is splited into q, k, v so these matrix are same as other,
+        but when it comes to decoder, the query matrix comes from masked multi head attention with casual masking performed on decoder input. Therefore,
         In Encoder, q, k, v matricies is same.
-        In Decoder q and k comes from encoder output and v from MMHA on decoder's input
+        In Decoder k and v comes from encoder output and q from MMHA on decoder's input
         """
 
         if self.dropout is not None:
